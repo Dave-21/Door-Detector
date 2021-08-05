@@ -1,4 +1,5 @@
 import win32gui, win32con
+from sound import Sound
 import serial
 import time
 
@@ -16,5 +17,6 @@ while serCom.readable():
         win32gui.EnumWindows(winEnumHandler, None)
         for i in activeWindows:
             win32gui.ShowWindow(i, win32con.SW_MINIMIZE)
+        Sound.mute()
 
         break
